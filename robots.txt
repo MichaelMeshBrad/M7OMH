@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://m7omh.uk/sitemap.xml

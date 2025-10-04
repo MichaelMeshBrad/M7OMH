@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M7OMH – UK Amateur Radio Operator</title>
+  <meta name="description" content="M7OMH.uk — the personal station page of Michael, a UK amateur radio operator based in West Yorkshire. Operating mainly on 2 m and 70 cm, DMR and MeshCore networking." />
+  <meta property="og:title" content="M7OMH – UK Amateur Radio Operator" />
+  <meta property="og:description" content="The personal station page of M7OMH in West Yorkshire – 2 m, 70 cm, DMR and MeshCore networking." />
+  <meta property="og:image" content="banner.png" />
+  <meta property="og:url" content="https://m7omh.uk/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root {
+      --bg: #020915;
+      --grid: rgba(0, 198, 255, 0.05);
+      --panel: rgba(13, 28, 51, 0.9);
+      --text: #e8f3ff;
+      --muted: #9ccaff;
+      --accent: #00c6ff;
+      --accent2: #7ad7ff;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, #030b16 0%, #01070f 100%),
+        repeating-linear-gradient(0deg, var(--grid) 0, var(--grid) 1px, transparent 1px, transparent 40px),
+        repeating-linear-gradient(90deg, var(--grid) 0, var(--grid) 1px, transparent 1px, transparent 40px);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(5, 18, 33, 0.8);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,198,255,0.2);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 10px;
+      box-shadow: 0 0 15px rgba(0,198,255,0.15);
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    nav a:hover {
+      color: var(--accent);
+      text-shadow: 0 0 8px var(--accent);
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      margin-top: 60px;
+      background: linear-gradient(270deg, #021a33, #054b77, #021a33);
+      background-size: 400% 400%;
+      animation: bannerShift 16s ease infinite;
+      border-bottom: 2px solid rgba(0,198,255,0.3);
+      box-shadow: 0 0 30px rgba(0,198,255,0.2);
+    }
+    @keyframes bannerShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    header img { width: 100%; height: auto; display: block; }
+    .signal-line {
+      height: 3px;
+      width: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent));
+      background-size: 200% 100%;
+      animation: signalFlow 2s linear infinite;
+    }
+    @keyframes signalFlow {
+      0% { background-position: 0 0; }
+      100% { background-position: 200% 0; }
+    }
+    header h1 {
+      margin: 15px 0 5px;
+      font-size: 2.6rem;
+      color: var(--accent);
+      text-shadow: 0 0 15px var(--accent), 0 0 30px rgba(0,198,255,0.4);
+    }
+    header p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* SECTIONS */
+    section {
+      margin: 40px 0;
+      background: var(--panel);
+      border: 1px solid rgba(0,198,255,0.25);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: 0 0 25px rgba(0,198,255,0.1);
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease forwards;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+      text-align: left;
+    }
+    section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 35px rgba(0,198,255,0.2);
+      background: rgba(18, 36, 66, 0.95);
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: none; }
+    }
+
+    h2 {
+      color: var(--accent);
+      border-bottom: 1px solid rgba(0,198,255,0.4);
+      padding-bottom: 6px;
+      margin-top: 0;
+      margin-bottom: 15px;
+      text-align: left;
+      position: relative;
+    }
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 70px; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 3px;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 40px;
+    }
+    ul li { margin: 6px 0; }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    a:hover { text-shadow: 0 0 8px rgba(0,198,255,0.8); }
+
+    #logbook { margin-bottom: 50px; }
+    .logbook-frame {
+      margin-top: 15px;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #f2f6fa;
+      box-shadow: inset 0 0 10px rgba(0,198,255,0.1), 0 0 15px rgba(0,198,255,0.25);
+      border: 1px solid rgba(0,198,255,0.2);
+      padding: 0;
+    }
+    .logbook-frame iframe {
+      display: block;
+      width: 100%;
+      height: 460px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(8,22,41,0.9);
+      border-top: 1px solid rgba(0,198,255,0.3);
+      color: var(--muted);
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+
+    .status-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      background: rgba(5,18,33,0.9);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(0,198,255,0.3);
+      box-shadow: 0 -2px 15px rgba(0,198,255,0.2);
+      color: #9ccaff;
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      z-index: 1000;
+      text-align: center;
+    }
+    .status-item {
+      background: rgba(13,28,51,0.6);
+      border: 1px solid rgba(0,198,255,0.2);
+      padding: 6px 14px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,198,255,0.05);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .status-item:hover {
+      box-shadow: 0 0 15px rgba(0,198,255,0.3);
+      border-color: rgba(0,198,255,0.5);
+    }
+
+    @media (max-width: 768px) {
+      nav { gap: 10px; font-size: 0.9rem; }
+      section { margin: 25px 0; padding: 20px; }
+      .logbook-frame iframe { height: 350px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#bands">Bands</a>
+    <a href="#meshcore">MeshCore</a>
+    <a href="#logbook">Logbook</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <img src="banner.png" alt="M7OMH Amateur Radio Banner" />
+    <div class="signal-line"></div>
+    <h1>M7OMH</h1>
+    <p>UK Amateur Radio Operator | 2 m / 70 cm · DMR · MeshCore</p>
+  </header>
+
+  <div class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello, I’m <strong>Michael (M7OMH)</strong>, a UK Foundation amateur radio operator based in West Yorkshire.  
+      I mostly operate on the 2 metre and 70 centimetre bands, enjoying both local contacts and experimenting with digital modes such as DMR.  
+      I’m also active with the MeshCore network, helping to connect local nodes across the region.  
+      This website is a simple place to share my interests, experiments, and progress in the hobby.</p>
+    </section>
+
+    <section id="bands">
+      <h2>Bands and Modes</h2>
+      <ul>
+        <li>VHF and UHF – 2 metres (144 MHz) and 70 centimetres (430 MHz)</li>
+        <li>Local simplex and repeater operation</li>
+        <li>DMR digital voice using BrandMeister and TGIF networks</li>
+        <li>Portable operation and antenna testing</li>
+      </ul>
+    </section>
+
+    <section id="meshcore">
+      <h2>MeshCore and Networking</h2>
+      <p>MeshCore is an open mesh communication project that uses low-power devices to build local digital networks.  
+      I’m working on testing coverage and reliability across West Yorkshire and looking at ways to link MeshCore with digital radio gateways and other services.</p>
+      <ul>
+        <li>🔗 <a href="https://meshcore.co.uk" target="_blank" rel="noopener">MeshCore Official Website</a></li>
+        <li>🔗 <a href="https://meshcoreyorkshire.co.uk" target="_blank" rel="noopener">MeshCore Yorkshire</a></li>
+      </ul>
+    </section>
+
+    <section id="logbook">
+      <h2>QRZ Logbook</h2>
+      <p>Here’s a live feed from my QRZ logbook, showing my most recent contacts:</p>
+      <div class="logbook-frame">
+        <iframe src="https://logbook.qrz.com/lbstat/M7OMH/" scrolling="no" title="QRZ Logbook"></iframe>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact and QSL</h2>
+      <p>You can contact me directly by email at <a href="mailto:contact@m7omh.uk">contact@m7omh.uk</a>.</p>
+      <p>I’m happy to confirm contacts by the RSGB bureau, or electronically via QRZ and other QSL services.</p>
+    </section>
+  </div>
+
+  <footer>
+    <p>© <span id="year"></span> M7OMH.uk — UK Amateur Radio Operator</p>
+  </footer>
+
+  <div class="status-bar">
+    <div class="status-item">📻 Callsign: <strong>M7OMH</strong></div>
+    <div class="status-item">🗺️ Locator: <strong>IO93</strong></div>
+    <div class="status-item">🎓 Licence: <strong>UK Foundation</strong></div>
+    <div class="status-item">🕒 Last updated: <span id="lastUpdated"></span></div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const d = new Date();
+    document.getElementById("lastUpdated").textContent =
+      d.toLocaleDateString('en-GB', { year:'numeric', month:'short', day:'numeric' });
+  </script>
+</body>
+</html>
